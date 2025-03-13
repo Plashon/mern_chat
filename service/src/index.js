@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import { connectDB } from "./lib/db.js";
 import { app, server } from "./lib/socket.js";
 import authRouter from "./router/auth.route.js";
+import messageRouter from "./router/message.route.js";
 
 //cerate variable
 const FRONT_URL = process.env.FRONT_URL;
@@ -26,7 +27,7 @@ app.get("/", (req, res) => {
 
 //routers
 app.use("/api/v1/auth", authRouter);
-
+app.use("/api/v1/message", messageRouter);
 //show port in console
 server.listen(PORT, () => {
   console.log("Server is running on http://localhost:" + PORT);
