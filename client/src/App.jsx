@@ -42,11 +42,11 @@ function App() {
         />
         <Route
           path="/setting"
-          element={!authUser ? <Setting /> : <Navigate to="/login" />}
+          element={authUser ? <Setting /> : <Navigate to="/login" />}
         />
         <Route
           path="/profile"
-          element={!authUser ? <Profile /> : <Navigate to="/login" />}
+          element={authUser ? <Profile /> : <Navigate to="/login" />}
         />
       </Routes>
       <Toaster />
